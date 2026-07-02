@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Reviewer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="workspace" aria-label="Code review workspace">
+            <div class="panel editor-panel">
+                <header class="panel-header">
+                    <div>
+                        <p class="eyebrow">Gen AI Code Reviewer</p>
+                        <h1>Review code before it ships</h1>
+                    </div>
+                    <div class="status-pill" id="apiStatus">Ready</div>
+                </header>
+
+                <div class="toolbar" aria-label="Review controls">
+                    <label class="select-field">
+                        <span>Language</span>
+                        <select id="language">
+                            <option value="">Auto detect</option>
+                            <option>JavaScript</option>
+                            <option>TypeScript</option>
+                            <option>Python</option>
+                            <option>Java</option>
+                            <option>C++</option>
+                            <option>Go</option>
+                            <option>PHP</option>
+                            <option>Ruby</option>
+                        </select>
+                    </label>
+                    <button class="ghost-button" id="sampleButton" type="button">Load sample</button>
+                    <button class="ghost-button" id="clearButton" type="button">Clear</button>
+                </div>
+
+                <div class="code-frame">
+                    <div class="code-gutter" aria-hidden="true" id="lineNumbers">1</div>
+                    <textarea id="codeInput" spellcheck="false" placeholder="Paste your code here..."></textarea>
+                </div>
+
+                <div class="editor-footer">
+                    <span id="charCount">0 characters</span>
+                    <button class="primary-button" id="reviewButton" type="button">Review code</button>
+                </div>
+            </div>
+
+            <aside class="panel review-panel" aria-label="Review result">
+                <header class="review-header">
+                    <div>
+                        <p class="eyebrow">AI Feedback</p>
+                        <h2>Review report</h2>
+                    </div>
+                    <div class="review-actions">
+                        <button class="icon-button" id="copyButton" type="button" title="Copy review" aria-label="Copy review">Copy</button>
+                        <button class="icon-button" id="downloadButton" type="button" title="Download review" aria-label="Download review">Save</button>
+                    </div>
+                </header>
+
+                <div class="empty-state" id="emptyState">
+                    <div class="visual-card" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <h3>Your review will appear here</h3>
+                    <p>Submit a snippet to get practical feedback on bugs, risks, maintainability, and improved code.</p>
+                </div>
+
+                <div class="loading-state hidden" id="loadingState">
+                    <div class="loader" aria-hidden="true"></div>
+                    <p>Reviewing your code...</p>
+                </div>
+
+                <article class="review-output hidden" id="reviewOutput"></article>
+            </aside>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>

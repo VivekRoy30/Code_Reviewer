@@ -1,0 +1,20 @@
+{
+  "name": "code_reviewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --check server.js && node --check src/app.js && node --check src/controllers/ai.controller.js && node --check src/routes/ai.route.js && node --check src/services/ai.service.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.10.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
